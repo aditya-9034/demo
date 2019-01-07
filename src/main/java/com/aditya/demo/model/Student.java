@@ -1,10 +1,14 @@
 package com.aditya.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
+@Document
 public class Student {
+    @Id
     private UUID id;
     private Integer age;
     private String firstName;

@@ -4,6 +4,7 @@ import com.aditya.demo.model.Student;
 import com.aditya.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.print.attribute.standard.Media;
@@ -11,6 +12,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.UUID;
 
+@Controller
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentController {
@@ -44,6 +46,12 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.DELETE, path = "{studentId}")
     public void deleteStudent(@PathVariable("studentId") UUID studentId) {
         studentService.deleteStudentById(studentId);
+    }
+
+    //for getting the form to create a student
+    @RequestMapping(method=RequestMethod.GET,value="/create")
+    public String create(){
+        return "hello";
     }
 
 }
